@@ -22,7 +22,13 @@ def normalize(lst):
     return nrm_lst
 
 def angle_bw(v1,v2):
-    return (math.acos((v1[0]*v2[0])+(v1[1]*v2[1])+(v1[2]*v2[2])))*180/math.pi
+    dot_product = (v1[0]*v2[0])+(v1[1]*v2[1])+(v1[2]*v2[2])
+    if dot_product < -1:
+        dot_product = -1
+    elif dot_product > 1:
+        dot_product = 1
+
+    return (math.acos(dot_product))*180/math.pi
 
 
 
