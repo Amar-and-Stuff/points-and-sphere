@@ -1,8 +1,11 @@
+
 import math
 import numpy as np
 import random
 from operator import add, sub
-
+import matplotlib.pyplot as plt
+   
+   
 def normalize(lst):
     sqr_sum=0
     for i in lst:
@@ -72,11 +75,20 @@ def points_on_unit_sphere(N,condition=50):
         condition -= 1
     for i in rectangular:
         for j in rectangular:
-            print(angle_bw(j,i))
+            #print(angle_bw(j,i))
+            pass
     return rectangular
 
-if N >= 2:
 
-    print(points_on_unit_sphere(N))
+
+if N >= 2:
+    final_points = points_on_unit_sphere(N,condition)
+    x = [i[0] for i in final_points]
+    y = [i[1] for i in final_points]
+    z = [i[2] for i in final_points]
+    ax = plt.axes(projection="3d")
+    ax.scatter(x,y,z)
+    plt.show()
 else:
     print("mad or wht")
+
