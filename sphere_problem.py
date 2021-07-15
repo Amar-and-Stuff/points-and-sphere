@@ -1,4 +1,3 @@
-
 import math
 import numpy as np
 import random
@@ -8,18 +7,18 @@ import matplotlib.pyplot as plt
    
 def normalize(lst):
     sqr_sum=0
+
     for i in lst:
         sqr_sum += i*i
 
-
     magnitude = math.sqrt(sqr_sum)
-
     nrm_lst = []
 
     for i in lst:
         nrm_lst.append(i/magnitude)
 
     return nrm_lst
+
 
 def angle_bw(v1,v2):
     dot_product = (v1[0]*v2[0])+(v1[1]*v2[1])+(v1[2]*v2[2])
@@ -32,26 +31,12 @@ def angle_bw(v1,v2):
 
 
 
-N = int(input("enter number of points: "))
-
 
 
 def points_on_unit_sphere(N,condition=100):
-    x_ = np.arange(1,11,10/N)
-    y_ = np.arange(11,21,10/N)
-    z_ = np.arange(21,31,10/N)
-
-    x = list()
-    y = list()
-    z = list()
-
-
-    for i in x_:
-        x.append(i)
-    for i in y_:
-        y.append(i)
-    for i in z_:
-        z.append(i)
+    x = [i for i in np.arange(1,11,10/N)]
+    y = [i for i in np.arange(11,21,10/N)]
+    z = [i for i in np.arange(21,31,10/N)]
 
 
     random.shuffle(x)
@@ -59,11 +44,7 @@ def points_on_unit_sphere(N,condition=100):
     random.shuffle(z)
 
 
-    rectangular = list()
-
-
-    for i in range(N):
-        rectangular.append(normalize([x[i],y[i],z[i]]))
+    rectangular = [[x[i],y[i],z[i]] for i in range(N)]
 
 
     force_vector = [0,0,0]
@@ -79,13 +60,10 @@ def points_on_unit_sphere(N,condition=100):
             rectangular[i] = force_vector
             force_vector = [0,0,0]
         condition -= 1
-    for i in rectangular:
-        for j in rectangular:
-            #print(angle_bw(j,i))
-            pass
     return rectangular
 
 
+N = int(input("enter number of points: "))
 
 if N >= 2:
     final_points = points_on_unit_sphere(N)
@@ -97,4 +75,3 @@ if N >= 2:
     plt.show()
 else:
     print("mad or wht")
-
