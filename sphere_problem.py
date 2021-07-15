@@ -33,10 +33,10 @@ def angle_bw(v1,v2):
 
 
 N = int(input("enter number of points: "))
-condition = int(input("conditionn:"))
 
 
-def points_on_unit_sphere(N,condition=50):
+
+def points_on_unit_sphere(N,condition=100):
     x_ = np.arange(1,11,10/N)
     y_ = np.arange(11,21,10/N)
     z_ = np.arange(21,31,10/N)
@@ -88,7 +88,7 @@ def points_on_unit_sphere(N,condition=50):
 
 
 if N >= 2:
-    final_points = points_on_unit_sphere(N,condition)
+    final_points = points_on_unit_sphere(N)
     x = [i[0] for i in final_points]
     y = [i[1] for i in final_points]
     z = [i[2] for i in final_points]
