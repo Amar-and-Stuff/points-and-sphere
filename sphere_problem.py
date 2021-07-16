@@ -83,7 +83,7 @@ def points_on_unit_sphere(N):
 
 N = int(input("Select number of points from 2 to 20: "))
 
-if N >= 2 and N <= 30:#two points are minimum to see action.
+if N >= 2 and N <= 20:#two points are minimum to see action.
     #storing finalized rectangular coordinates in final_points.
     final_points = points_on_unit_sphere(N)
 
