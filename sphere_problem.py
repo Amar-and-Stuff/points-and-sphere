@@ -5,12 +5,8 @@
     I wanted to study those solids. so we have this program which gives scatter plot of points of those solids. 
     '''
 
-
-
-
 import math
 import numpy as np
-import random
 import matplotlib.pyplot as plt
    
    
@@ -34,25 +30,19 @@ def angle_bw(v1,v2): #takes two lists of coordinates of point. Returns angle in 
     return (math.acos(dot_product))*180/math.pi
 
 
-
-
-
 def points_on_unit_sphere(N):
-
-
     #generating N points from specified range to get unique points
     #And shuffling points for randomness
-    x = np.random.permutation(np.linspace(1,10,N))
-    y = np.random.permutation(np.linspace(11,20,N))
-    z = np.random.permutation(np.linspace(21,30,N))
-
-
-    #making positional vectors in rectangular coordinate geometry
-    rectangular = [normalize([x[i],y[i],z[i]]) for i in range(N)]
-
+    rectangular = np.array([np.random.permutation(np.linspace(1,10,N)),
+    np.random.permutation(np.linspace(11,20,N)),
+    np.random.permutation(np.linspace(21,30,N))])
+    rectangular = np.transpose(rectangular)
+    for i in range(N):
+        rectangular[i] = normalize(rectangular[i])
     #force_vector to find direction of force form all other points
     force_vector = np.zeros(3)
     condition = True
+
     while condition:
         #in this loop:
         #for a point we find all vectors looking at the point. 
