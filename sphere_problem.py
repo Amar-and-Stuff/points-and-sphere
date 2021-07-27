@@ -5,13 +5,12 @@
     I wanted to study those solids. so we have this program which gives scatter plot of points of those solids. 
     '''
 
-import math
 import numpy as np
 import matplotlib.pyplot as plt
    
    
 def magnitude(lst):#takes a list of coordinates. Returns magnitude value of that position vector. 
-    return math.sqrt(lst[0]*lst[0]+lst[1]*lst[1]+lst[2]*lst[2])
+    return np.sqrt(lst[0]*lst[0]+lst[1]*lst[1]+lst[2]*lst[2])
 
 def normalize(lst):#takes a list of coordinates. Returns a normalized version of it. 
     mag = magnitude(lst)
@@ -27,7 +26,7 @@ def angle_bw(v1,v2): #takes two lists of coordinates of point. Returns angle in 
     elif dot_product > 1:
         dot_product = 1
 
-    return (math.acos(dot_product))*180/math.pi
+    return (np.arccos(dot_product))*180/math.pi
 
 
 def points_on_unit_sphere(N):
