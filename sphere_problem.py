@@ -1,13 +1,17 @@
+
+
+#not an application just a module
+
+
 '''what is this program?
     Assume we have N points on a sphere. points are always pushing each other and they cannot leave surface of the sphere. 
     After some play we will see the points in a state of equilibrium. If N > 3 points form a 3d solid. 
     Interestingly we can have a solid with declaring N.(ofcourse they are specific type of solids)
     I wanted to study those solids. so we have this program which gives scatter plot of points of those solids. 
     '''
-
+#lessthan 20 points are feasible.
 import numpy as np
-import matplotlib.pyplot as plt
-   
+  
    
 def magnitude(lst):#takes a list of coordinates. Returns magnitude value of that position vector. 
     return np.sqrt(lst[0]*lst[0]+lst[1]*lst[1]+lst[2]*lst[2])
@@ -66,19 +70,3 @@ def points_on_unit_sphere(N):
     #returning finalized rectangular coordinates to plot them.
     return rectangular
 
-
-N = int(input("Select number of points from 2 to 20: "))
-
-if N >= 2 and N <= 20:#two points are minimum to see action.
-    #storing finalized rectangular coordinates in final_points.
-    final_points = points_on_unit_sphere(N)
-
-    #distributing coordinates to plot
-    x = [i[0] for i in final_points]
-    y = [i[1] for i in final_points]
-    z = [i[2] for i in final_points]
-    ax = plt.axes(projection="3d")
-    ax.scatter(x,y,z)
-    plt.show()
-else:#mad or wht
-    print("Number of points should be an integer in range of [2,20]")
