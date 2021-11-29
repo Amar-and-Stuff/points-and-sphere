@@ -67,4 +67,3 @@ def points_on_unit_sphere(N):
     return rectangular
 
 
-print(points_on_unit_sphere(3))
