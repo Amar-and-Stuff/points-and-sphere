@@ -53,11 +53,7 @@ def points_on_unit_sphere(N):
         #Make that resultant unit vector as positional vector of the point.
         max_jump_distance = 0
         for i in range(N):
-            for j in range(N):
-                if i == j:
-                    continue
-                sub_holder = normalize(rectangular[i]-rectangular[j])
-                force_vector = force_vector+sub_holder
+            force_vector = N*rectangular[i]-np.sum(rectangular,axis = 0)
             force_vector = normalize(force_vector)
             #here we make sure if points are stabalized or not
             jump_distance = magnitude(force_vector-rectangular[i])
@@ -70,3 +66,5 @@ def points_on_unit_sphere(N):
     #returning finalized rectangular coordinates to plot them.
     return rectangular
 
+
+print(points_on_unit_sphere(3))
